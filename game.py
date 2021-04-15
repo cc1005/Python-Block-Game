@@ -18,6 +18,7 @@ game_over = False
 clock = pygame.time.Clock()
 
 EnemyClass.SetScreenWidthForEnemy(screen_width)
+PlayerClass.PlayerFirstPosition(screen_height, screen_width)
 
 while not game_over:
     
@@ -28,15 +29,14 @@ while not game_over:
 
         if event.type == pygame.KEYDOWN:
             x = player_mover[0]
-            y = player_mover[1]
             if event.key == pygame.K_LEFT:
-                PlayerClass.MovePlayerLeft(x, y)
+                PlayerClass.MovePlayerLeft(x)
             elif event.key == pygame.K_RIGHT:
-                PlayerClass.MovePlayerRight(x, y)
+                PlayerClass.MovePlayerRight(x)
 
     screen.fill((background_colour))
 
-    PlayerClass.PlayerRender(screen, screen_height, screen_width)
+    PlayerClass.PlayerRender(screen)
     EnemyClass.EnemyRender(screen, screen_height, screen_width)
 
     clock.tick(30)
