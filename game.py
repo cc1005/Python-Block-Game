@@ -7,14 +7,16 @@ pygame.init()
 screen_width = 800
 screen_height = 600
 
-player_colour = (150, 150, 252)
+player_colour = (200, 200, 252)
 player_size = 30
 player_pos = [(screen_width/2), screen_height/2 + (screen_height/5 * 2)]
-background_colour = [252, 252, 252]
+background_colour = [100, 100, 100]
 
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 game_over = False
+
+EnemyClass.SetScreenWidthForEnemy(screen_width)
 
 while not game_over:
     
