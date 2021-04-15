@@ -1,5 +1,6 @@
 import pygame
 import sys
+from enemy import EnemyClass
 
 pygame.init()
 
@@ -36,5 +37,5 @@ while not game_over:
     screen.fill((background_colour))
 
     pygame.draw.circle(screen, player_colour, (player_pos[0], player_pos[1]), player_size)
-
+    EnemyClass.EnemyRender(screen)
     pygame.display.update()
