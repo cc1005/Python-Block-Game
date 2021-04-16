@@ -8,6 +8,8 @@ pygame.init()
 screen_width = 800
 screen_height = 600
 player_mover = [0, 0]
+k_left_is_pressed = False
+k_right_is_pressed = False
 
 background_colour = [100, 100, 100]
 
@@ -30,9 +32,21 @@ while not game_over:
         if event.type == pygame.KEYDOWN:
             x = player_mover[0]
             if event.key == pygame.K_LEFT:
-                PlayerClass.MovePlayerLeft(x)
+                k_left_is_pressed = True
             elif event.key == pygame.K_RIGHT:
-                PlayerClass.MovePlayerRight(x)
+                k_right_is_pressed = True
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                k_left_is_pressed = False
+            elif event.key == pygame.K_RIGHT:
+                k_right_is_pressed = False
+
+        if k_left_is_pressed:
+            PlayerClass.MovePlayerLeft(x)
+
+        if k_right_is_pressed:
+            PlayerClass.MovePlayerRight(x)
 
     screen.fill((background_colour))
 
